@@ -24,5 +24,23 @@ class Animation {
         this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height)
     }
 
-    proximoFrame() { }
+    proximoFrame() {
+        if (!this.ligado) return
+
+        this.limparTela()
+
+        for (let i in this.sprites) {
+            this.sprites[i].atualizar()
+        }
+
+        for (let i in this.sprites) {
+            this.sprites[i].desenhar()
+        }
+
+        let animacao = this
+
+        requestAnimationFrame(function () {
+            animacao.proximoFrame()
+        })
+    }
 }
