@@ -113,6 +113,6 @@ export default class Mosca {
     }
 
     getPath() {
-        return this.path || "./images/mosca.png"
+        return this.path || "./src/images/mosca.png"
     }
 }
