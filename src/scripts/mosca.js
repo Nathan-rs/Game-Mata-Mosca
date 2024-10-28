@@ -31,13 +31,24 @@ class Mosca {
         this.context.restore()
     }
 
-    mudarImagem() { }
+    mudarImagem() {
+        if (this.sprite.src.includes("mosca-asa-baixa.png")) {
+            this.sprite.src = "./src/images/mosca.png"
+        } else {
+            this.sprite.src = "./src/images/mosca-asa-baixa.png"
+        }
+    }
 
-    inverteSprite() { }
+    inverteSprite() {
+        this.invertido = !this.invertido
+    }
 
-    inverteSprite() { }
+    movimentoRadom() {
+        let deslocamentoX = Math.random() * 10 - 6
+        let deslocamentoY = Math.random() * 10 - 6
 
-    movimentoRadom() { }
+        return [deslocamentoX, deslocamentoY]
+    }
 
     movimentoPisica() { }
 
