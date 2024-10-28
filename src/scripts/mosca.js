@@ -17,7 +17,19 @@ class Mosca {
     }
 
 
-    desenhar() { }
+    desenhar() {
+        this.context.save()
+
+        if (this.invertido) {
+            this.context.drawImage(this.sprite, this.posX, this.posY, this.box, this.box)
+
+        } else {
+            this.context.scale(-1, 1)
+            this.context.drawImage(this.sprite, -this.posX - this.box, this.posY, this.box, this.box)
+        }
+
+        this.context.restore()
+    }
 
     mudarImagem() { }
 
