@@ -88,7 +88,10 @@ class Mosca {
         this.movimentoPisica()
     }
 
-    setPath(path) { }
+    setPath(path) {
+        this.path = path
+        this.sprite.src = path
+    }
 
     getPath() { }
 }
