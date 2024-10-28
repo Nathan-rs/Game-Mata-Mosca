@@ -31,7 +31,7 @@ function Mosca(ctx) {
 
     setInterval(() => {
         this.movendo = !this.movendo
-        if(this.movendo) {
+        if (this.movendo) {
             this.acelerar()
         }
     }, 1000)
@@ -47,6 +47,7 @@ function Animacao(ctx) {
 }
 
 Mosca.prototype = {
+
     desenhar: function () {
         this.context.save()
 
@@ -96,8 +97,8 @@ Mosca.prototype = {
 
     movimentoPisica: function () {
         let ctx = this.context
-        
-        if(!this.movendo) return
+
+        if (!this.movendo) return
 
         let velocidadeX = this.acelerando ? this.velocidadeX * this.aceleracao : this.velocidadeX
         let velocidadeY = this.acelerando ? this.velocidadeY * this.aceleracao : this.velocidadeY
@@ -120,7 +121,7 @@ Mosca.prototype = {
         }
     },
 
-    acelerar: function() {
+    acelerar: function () {
 
         this.acelerando = true
 
@@ -153,7 +154,13 @@ Animacao.prototype = {
         this.sprites.push(sprite)
     },
 
-    ligar: function () {
+    /**
+     * 
+     * @param {object} moscar objeto moscar que passa a função desenhar
+     */
+    ligar: function (mosca) {
+        mosca.desenhar()
+        this.novoSprite(mosca)
         this.ligado = true
         this.proximoFrame()
     },
@@ -190,6 +197,6 @@ Animacao.prototype = {
 const mosca = new Mosca(ctx)
 const animacao = new Animacao(ctx)
 
-mosca.desenhar()
-animacao.novoSprite(mosca)
-animacao.ligar()
+// mosca.desenhar()
+// animacao.novoSprite(mosca)
+animacao.ligar(mosca)

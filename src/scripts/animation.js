@@ -11,7 +11,13 @@ export default class Animation {
         this.sprites.push(sprite)
     }
 
-    ligar() {
+    /**
+     * 
+     * @param {Object} mosca objecto mosca que passa a função desenhar 
+     */
+    ligar(mosca) {
+        mosca.desenhar()
+        this.novoSprite(mosca)
         this.ligado = true
         this.proximoFrame()
     }
