@@ -7,7 +7,7 @@ class Animation {
         this.context = ctx
     }
 
-    novoSprite() {
+    novoSprite(sprite) {
         this.sprites.push(sprite)
     }
 
