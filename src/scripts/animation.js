@@ -1,5 +1,5 @@
 
-class Animation {
+export default class Animation {
 
     constructor(ctx) {
         this.sprites = []

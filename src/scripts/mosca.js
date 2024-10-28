@@ -1,5 +1,5 @@
 
-class Mosca {
+export default class Mosca {
     constructor(ctx) {
         this.sprite = new Image()
         this.velocidadeX = 5
@@ -14,6 +14,25 @@ class Mosca {
         this.context = ctx
         this.invertido = false
         this.path = "./src/images/mosca.png"
+
+
+        let self = this
+
+        // Corrige o problema de carregamento da imagem, garantido que a imagem foi carregada antes de desenhar
+        this.sprite.onload = function () {
+            self.desenhar()
+        }
+
+        setInterval(() => {
+            this.mudarImagem()
+        }, 100);
+
+        setInterval(() => {
+            this.movendo = !this.movendo
+            if (this.movendo) {
+                this.acelerar()
+            }
+        }, 1000)
     }
 
 
