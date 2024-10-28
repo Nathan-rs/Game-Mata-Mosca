@@ -16,7 +16,9 @@ class Animation {
         this.proximoFrame()
     }
 
-    desligar() { }
+    desligar() {
+        this.ligado = false
+    }
 
     limparTela() { }
 
