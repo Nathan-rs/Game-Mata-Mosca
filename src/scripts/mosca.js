@@ -93,5 +93,7 @@ class Mosca {
         this.sprite.src = path
     }
 
-    getPath() { }
+    getPath() {
+        return this.path === "" ? "./images/mosca.png" : this.path
+    }
 }
