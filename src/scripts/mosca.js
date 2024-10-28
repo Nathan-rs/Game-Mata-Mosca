@@ -50,9 +50,39 @@ class Mosca {
         return [deslocamentoX, deslocamentoY]
     }
 
-    movimentoPisica() { }
+    movimentoPisica() {
+        let ctx = this.context
 
-    acelerar() { }
+        if (!this.movendo) return
+
+        let velocidadeX = this.acelerando ? this.velocidadeX * this.aceleracao : this.velocidadeX
+        let velocidadeY = this.acelerando ? this.velocidadeY * this.aceleracao : this.velocidadeY
+
+        this.posX = this.posX + velocidadeX
+        this.posY = this.posY + velocidadeY
+
+
+        // Ao chegar no final do canvas no eixo X, inverte a direção
+        if (this.posX > (ctx.canvas.width - this.box) || this.posX < 0) {
+            this.velocidadeX = this.velocidadeX * -1
+            this.inverteSprite()
+            this.posX = Math.max(0, Math.min(this.posX, ctx.canvas.width - this.box))
+        }
+
+        // Ao chegar no final do canvas no eixo Y, inverte a direção
+        if (this.posY > (ctx.canvas.height - this.box) || this.posY < 0) {
+            this.velocidadeY = this.velocidadeY * -1
+            this.posY = Math.max(0, Math.min(this.posY, ctx.canvas.height - this.box))
+        }
+    }
+
+    acelerar() {
+        this.acelerando = true
+
+        setTimeout(() => {
+            this.acelerando = false
+        }, this.tempoAceleracao);
+    }
 
     atualizar() { }
 
