@@ -84,7 +84,9 @@ class Mosca {
         }, this.tempoAceleracao);
     }
 
-    atualizar() { }
+    atualizar() {
+        this.movimentoPisica()
+    }
 
     setPath(path) { }
 
