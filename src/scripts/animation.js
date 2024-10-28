@@ -11,7 +11,10 @@ class Animation {
         this.sprites.push(sprite)
     }
 
-    ligar() { }
+    ligar() {
+        this.ligado = true
+        this.proximoFrame()
+    }
 
     desligar() { }
 
